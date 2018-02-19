@@ -10,6 +10,11 @@
 #define PARTICLE_FILTER_H_
 
 #include "helper_functions.h"
+#define NUM_PARTICLES 100
+#define LOG(s) do{ if(0){std::cout << s;} } while(0)
+
+extern int debug;
+
 
 struct Particle {
 
@@ -21,6 +26,18 @@ struct Particle {
 	std::vector<int> associations;
 	std::vector<double> sense_x;
 	std::vector<double> sense_y;
+
+	Particle(){}
+
+	Particle(double x0, double y0, double theta0){
+
+		x = x0;
+		y = y0;
+		theta = theta0;
+		weight = 1;
+
+	}
+
 };
 
 
